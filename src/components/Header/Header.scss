@@ -1,0 +1,30 @@
+@import "../../App";
+
+.Header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $themecolor;
+
+  .Header-logo {
+    color: black;
+    font-size: 22px;
+    padding: 10px;
+  }
+
+  nav {
+    display: flex;
+    padding-right: 10px;
+
+    .nav-item {
+      margin: 0 5px;
+      color: black;
+      transition: color 0.5s;
+
+      &:hover {
+        color: darkgoldenrod;
+      }
+    }
+  }
+}
