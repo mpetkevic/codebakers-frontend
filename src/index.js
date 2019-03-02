@@ -5,12 +5,14 @@ import {Provider} from 'react-redux';
 import thunk from 'redux-thunk';
 import loginReducer from './reducers/loginReducer';
 import authReducer from './reducers/authReducer';
+import usersReducer from './reducers/usersReducer';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 const rootReducer = combineReducers({
   login: loginReducer,
-  auth: authReducer
+  auth: authReducer,
+  users: usersReducer
 })
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

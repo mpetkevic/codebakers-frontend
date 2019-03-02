@@ -17,14 +17,14 @@ export default (state=initialState, action) => {
     // }
     case types.LOGIN_FORM_SUCCESS:{
       const {name, email} = action.user;
-      return {...initialState, name, email, isAuth: true}
+      return {state, name, email, isAuth: true}
     }
     case types.AUTH_USER:{
       const {name, email} = action.user;
-      return {...initialState, name, email, isAuth: true}
+      return {state, name, email, isAuth: true}
     }
     case types.LOG_OUT:
-      return {...initialState, isAuth: false}
+      return {state, isAuth: false}
 
     default: return state
   }
