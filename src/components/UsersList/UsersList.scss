@@ -1,0 +1,32 @@
+@import "../../App";
+.UsersList {
+  h3 {
+    text-align: center;
+    margin: 20px 0;
+  }
+
+  .list-item {
+    width: 80%;
+    margin: 5px auto;
+    background-color: $themecolor;
+    border: 1px solid black;
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+
+    .user-info {
+      margin-right: 5px;
+    }
+
+    .options {
+      color: black;
+      transition: color 0.5s;
+      margin-left: 5px;
+      cursor: pointer;
+
+      &:hover {
+        color: darkgoldenrod;
+      }
+    }
+  }
+}

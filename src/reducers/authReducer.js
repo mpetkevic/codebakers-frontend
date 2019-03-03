@@ -17,15 +17,17 @@ export default (state=initialState, action) => {
     // }
     case types.LOGIN_FORM_SUCCESS:{
       const {name, email} = action.user;
-      return {state, name, email, isAuth: true}
+      return {name, email, isAuth: true}
     }
     case types.AUTH_USER:{
       const {name, email} = action.user;
-      return {state, name, email, isAuth: true}
+      return {name, email, isAuth: true}
     }
     case types.LOG_OUT:
-      return {state, isAuth: false}
-
+      return {name: '', email: '', isAuth: false}
+    case types.UPDATE_USER:
+      console.log("LOGOUT REDUCER")
+      return {name: '', email: '', isAuth: false}
     default: return state
   }
 }

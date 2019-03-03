@@ -20,7 +20,6 @@ class App extends Component {
     if(!token) return;
     //get user from token
     const user = jwt.decode(token);
-    console.log(user)
     this.props.authUser(user);
   }
   render() {
@@ -41,4 +40,10 @@ class App extends Component {
   }
 }
 
-export default connect(null, actions)(App);
+const mapStateToProps = (state) => {
+  return {
+    auth: state.auth
+  }
+}
+
+export default connect(mapStateToProps, actions)(App);
