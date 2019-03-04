@@ -14,7 +14,9 @@ export default(state=initialState, action) => {
     case types.LOGIN_FORM_ERROR:
       return { ...state, errors: action.errors, loading: false };
     case types.LOGIN_FORM_SUCCESS:
-      return state;
+      console.log("SUCESS")
+      console.log(state)
+      return { ...state, loading: false };
     case types.LOGIN_FORM_LOADING:
       return { ...state, loading: true };
     default:

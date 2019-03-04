@@ -30,7 +30,7 @@ export function getUser(email) {
 
 export function deleteUser(email) {
   return async function (dispatch) {
-    const userDelete = await axios.delete(`https://codebakers-api.herokuapp.com/delete/${email}`)
+    await axios.delete(`https://codebakers-api.herokuapp.com/delete/${email}`)
     const res = await axios.get('https://codebakers-api.herokuapp.com/users');
     const usersList = res.data;
     // console.log(usersList)
@@ -41,7 +41,7 @@ export function deleteUser(email) {
   }
 }
 
-export function updateUser(user) {
+export function updateUser(user, history) {
   // localStorage.removeItem('codebakers-crud-system-token');
 
   return async function (dispatch) {
@@ -51,11 +51,15 @@ export function updateUser(user) {
       email: user.email
     });
     if(updatedUser.data.name !== 'error') {
-      console.log('Updated')
+      dispatch({
+        type: types.UPDATE_USER
+      })
+      localStorage.removeItem('codebakers-crud-system-token');
+      history.push('/')
     } else {
       dispatch({
         type: types.UPDATE_USER_ERROR,
-        error: 'Toks email jau yra, Iveskite kita'
+        error: 'This email exists, please enter new'
       })
     }
 

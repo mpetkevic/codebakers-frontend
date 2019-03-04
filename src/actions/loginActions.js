@@ -19,7 +19,6 @@ export function onFormSubmit(data, history) {
     console.log(res.data)
     if(res.data !== 'User not Found') {
       const token = res.data;
-      // set token to Local Storage
       localStorage.setItem('codebakers-crud-system-token', token);
       const user = jwt.decode(token);
       console.log(user);
@@ -27,12 +26,12 @@ export function onFormSubmit(data, history) {
         type:types.LOGIN_FORM_SUCCESS,
         user
       })
-      // jei viskas ok, redirect
+
       history.push('/');
     } else {
       dispatch({
         type: types.LOGIN_FORM_ERROR,
-        errors: 'Vartotojas nerastas'
+        errors: "User doesn't exist"
       })
     }
 

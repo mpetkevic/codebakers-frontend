@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
-import {Link} from 'react-router-dom'
 import * as actions from '../../actions/userActions';
 import Loader from '../Loader/Loader';
 import './UsersList.scss';
@@ -23,14 +22,14 @@ class UsersList extends Component {
           <div>
             {/*<Link className='options' to={`/user/${user.email}`}>Redaguoti</Link>*/}
             {authUser === user.email ? null :
-            <span className='options' onClick={()=>this.props.deleteUser(user.email)}>Pasalinti</span>}
+            <span className='options' onClick={()=>this.props.deleteUser(user.email)}>Remove</span>}
           </div>
         </div>
       )
     })
     return (
       <div className='UsersList'>
-        <h3>Vartotoju sarasas</h3>
+        <h3>Users List</h3>
         {loading ? <Loader color='#111' h={30}/> : list}
       </div>
     )

@@ -5,10 +5,9 @@ import Loader from '../Loader/Loader';
 import './Login.scss';
 
 class Login extends Component {
-
   onFormSubmit = (e) => {
     e.preventDefault();
-    // if(this.props.login.loading) return
+    if(this.props.login.loading) return;
     // console.log(this.props.login.errors)
     this.props.onFormSubmit(this.props.login, this.props.history);
   }
@@ -16,7 +15,6 @@ class Login extends Component {
   render() {
     const { email, password, errors, loading } = this.props.login;
     const { onInputChange }  = this.props;
-
     return (
       <div className='Login'>
         <form className='Login-form' onSubmit={this.onFormSubmit}>
@@ -24,12 +22,12 @@ class Login extends Component {
           {errors !== '' ? <p style={{
             color: 'red',
             textAlign: 'center'
-          }}>Vartotojas nerastas</p> : null}
+          }}>User Doesn't exists</p> : null}
           <label htmlFor="email">Email</label>
           <input
             type="email"
             name="email"
-            placeholder='Vartotojos el. pastas'
+            placeholder='Enter email'
             value={email}
             onChange={onInputChange}
           />
@@ -37,11 +35,11 @@ class Login extends Component {
           <input
             type="password"
             name="password"
-            placeholder='Vartotojo slaptazodis'
+            placeholder='Enter password'
             value={password}
             onChange={onInputChange}
           />
-          <button>{loading ? <Loader color='#111' h={15}/> : 'Submit'}</button>
+          <button>{loading  ? <Loader color='#111' h={15}/> : 'Submit'}</button>
         </form>
       </div>
     );
@@ -50,7 +48,8 @@ class Login extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    login: state.login
+    login: state.login,
+    auth: state.auth
   }
 }
 

@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import * as actions from '../../actions/userActions';
 import {connect} from "react-redux";
 import Loader from '../Loader/Loader';
+import './User.scss'
 
 class User extends Component {
   state = {
@@ -9,13 +10,16 @@ class User extends Component {
     email: '',
     password: '',
     authUserEmail: '',
+    error: null,
     loading: true,
     formToggle: false
   }
 
   async componentDidMount() {
-    if(this.props.auth.isAuth) {
-      await this.props.getUser(this.props.match.params.email);
+    await this.props.getUser(this.props.match.params.email);
+    const authUser = this.props.auth.isAuth;
+
+    if(authUser) {
       this.setState({
         name: this.props.users.user.name,
         email: this.props.users.user.email,
@@ -34,48 +38,64 @@ class User extends Component {
 
   onFormSubmit = (e) => {
     e.preventDefault();
-    this.props.updateUser(this.state);
+    if(this.state.password !== '') {
+      this.props.updateUser(this.state, this.props.history);
+    } else {
+      this.setState({error: 'Please enter password'})
+    }
   }
 
   onInputChange = e => this.setState({[e.target.name]: e.target.value})
 
   render() {
 
-    const {name, email, password, loading, formToggle} = this.state;
+    const {name, email, password, loading, formToggle, error} = this.state;
     return (
-      <div>
+      <div className='User'>
         <h3>User Info</h3>
         {loading ? <Loader color='#111' h={15}/> :
         <div>
-          <p>{name}</p>
-          <p>{email}</p>
-          <button onClick={this.onFormToggle}>Redaguoti</button>
+          <p><span>Name: </span>{name}</p>
+          <p><span>Email: </span>{email}</p>
+          <button onClick={this.onFormToggle}>Update</button>
           {formToggle ?
-            <form onSubmit={this.onFormSubmit}>
+            <form className='Update-form' onSubmit={this.onFormSubmit}>
               {this.props.users.error !== null ?
-                <p>{this.props.users.error}</p> : null}
+                <p style={{
+                  color: 'red',
+                  textAlign: 'center'
+                }}>{this.props.users.error}</p> : null}
+                {error !== null ?
+                <p style={{
+                  color: 'red',
+                  textAlign: 'center'
+                }}>{error}</p> : null
+                }
+                <label htmlFor='name'>New Name</label>
               <input
                 type="text"
                 name='name'
                 value={name}
-                placeholder='Iveskite Varda'
+                placeholder='Enter Name'
                 onChange={this.onInputChange}
               />
+              <label htmlFor="email">New Email</label>
               <input
                 type="email"
                 name='email'
                 value={email}
-                placeholder='Iveskite el pasta'
+                placeholder='Enter email'
                 onChange={this.onInputChange}
               />
+              <label htmlFor="password">New Password</label>
               <input
                 type="password"
                 name='password'
                 value={password}
-                placeholder='Iveskite nauja slaptazodi'
+                placeholder='Enter new password'
                 onChange={this.onInputChange}
               />
-              <button>Submit</button>
+              <button>{loading  ? <Loader color='#111' h={15}/> : 'Update'}</button>
             </form> : null}
         </div>}
       </div>
