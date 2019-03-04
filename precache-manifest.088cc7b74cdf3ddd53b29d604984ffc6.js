@@ -4,19 +4,19 @@ self.__precacheManifest = [
     "url": "/codebakers-frontend/static/js/runtime~main.7541b103.js"
   },
   {
-    "revision": "f3e60ab3acb0a7ac2ec7",
-    "url": "/codebakers-frontend/static/js/main.f3e60ab3.chunk.js"
+    "revision": "a8e2e8ee635062b68071",
+    "url": "/codebakers-frontend/static/js/main.a8e2e8ee.chunk.js"
   },
   {
     "revision": "94fced3931481fa3c0a9",
     "url": "/codebakers-frontend/static/js/2.94fced39.chunk.js"
   },
   {
-    "revision": "f3e60ab3acb0a7ac2ec7",
+    "revision": "a8e2e8ee635062b68071",
     "url": "/codebakers-frontend/static/css/main.cea8ad61.chunk.css"
   },
   {
-    "revision": "36c34ea9bb93776b5cac6dd76b41b776",
+    "revision": "3a6fe954c433fe362b111bf456ad2df6",
     "url": "/codebakers-frontend/index.html"
   }
 ];
