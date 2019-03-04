@@ -1,13 +1,13 @@
 {
   "main.css": "/codebakers-frontend/static/css/main.cea8ad61.chunk.css",
-  "main.js": "/codebakers-frontend/static/js/main.0a209d4c.chunk.js",
-  "main.js.map": "/codebakers-frontend/static/js/main.0a209d4c.chunk.js.map",
+  "main.js": "/codebakers-frontend/static/js/main.f3e60ab3.chunk.js",
+  "main.js.map": "/codebakers-frontend/static/js/main.f3e60ab3.chunk.js.map",
   "runtime~main.js": "/codebakers-frontend/static/js/runtime~main.7541b103.js",
   "runtime~main.js.map": "/codebakers-frontend/static/js/runtime~main.7541b103.js.map",
-  "static/js/2.31290a33.chunk.js": "/codebakers-frontend/static/js/2.31290a33.chunk.js",
-  "static/js/2.31290a33.chunk.js.map": "/codebakers-frontend/static/js/2.31290a33.chunk.js.map",
+  "static/js/2.94fced39.chunk.js": "/codebakers-frontend/static/js/2.94fced39.chunk.js",
+  "static/js/2.94fced39.chunk.js.map": "/codebakers-frontend/static/js/2.94fced39.chunk.js.map",
   "index.html": "/codebakers-frontend/index.html",
-  "precache-manifest.97d7f940be4df971ffc3dc8a10622104.js": "/codebakers-frontend/precache-manifest.97d7f940be4df971ffc3dc8a10622104.js",
+  "precache-manifest.71bfad8f4acd0d33dd0b2d10be06896f.js": "/codebakers-frontend/precache-manifest.71bfad8f4acd0d33dd0b2d10be06896f.js",
   "service-worker.js": "/codebakers-frontend/service-worker.js",
   "static/css/main.cea8ad61.chunk.css.map": "/codebakers-frontend/static/css/main.cea8ad61.chunk.css.map"
 }
