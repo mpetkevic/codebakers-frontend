@@ -11,7 +11,7 @@ export function onInputChange(e) {
 
 export function onFormSubmit(user,history) {
   const {name, email, password} = user;
-  if(name === '' && email === '' && password === '') {
+  if(name === '' || email === '' || password === '') {
     return {
       type: types.REGISTER_FORM_ERROR,
       error: 'Please fill all fields'
@@ -23,6 +23,9 @@ export function onFormSubmit(user,history) {
     })
     const res = await axios.post('https://codebakers-api.herokuapp.com/register', user)
     if(res.data.name !== 'error') {
+      dispatch ({
+        type: types.REGISTER_USER,
+      })
       history.push('/login')
     } else {
       dispatch ({

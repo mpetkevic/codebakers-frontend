@@ -8,6 +8,7 @@ class Register extends Component {
 
   onFormSubmit = e => {
     e.preventDefault();
+    // if(this.props.login.loading) return;
     this.props.onFormSubmit(this.props.register, this.props.history);
   }
 
@@ -46,7 +47,10 @@ class Register extends Component {
             value={password}
             onChange={onInputChange}
           />
-          <button>{loading  ? <Loader color='#111' h={15}/> : 'Submit'}</button>
+          <button>
+            {loading  ? <Loader color='#111' h={15}/> : 'Register'}
+
+          </button>
         </form>
       </div>
     );

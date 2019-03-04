@@ -39,7 +39,7 @@ class Login extends Component {
             value={password}
             onChange={onInputChange}
           />
-          <button>{loading  ? <Loader color='#111' h={15}/> : 'Submit'}</button>
+          <button>{loading  ? <Loader color='#111' h={15}/> : 'Login'}</button>
         </form>
       </div>
     );

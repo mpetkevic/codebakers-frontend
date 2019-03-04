@@ -16,6 +16,8 @@ export default(state=initialState, action) => {
       return {...state, error: action.error, loading: false};
     case types.REGISTER_FORM_LOADING:
       return {...state, loading: true}
+    case types.REGISTER_USER:
+      return {...state, loading: false}
     default:
       return state;
   }
